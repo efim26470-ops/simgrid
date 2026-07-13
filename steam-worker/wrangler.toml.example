@@ -1,0 +1,6 @@
+name = "simgrid-steam"
+main = "worker.js"
+compatibility_date = "2026-07-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://YOUR-NAME.github.io"
