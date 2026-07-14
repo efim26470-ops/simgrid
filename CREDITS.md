@@ -1,13 +1,33 @@
 # Visual credits
 
-Guide cover photography is loaded from Unsplash and cached by the PWA after first use.
+The following aerial photographs are bundled locally in `assets/guides/` and resized/compressed for the PWA. No endorsement by the authors or licensors is implied.
 
-Sources used in `data.js`:
+## Spa-Francorchamps
 
-- https://images.unsplash.com/photo-1503736334956-4c8f8e92946d
-- https://images.unsplash.com/photo-1532906619279-a4b7267faa66
-- https://images.unsplash.com/photo-1542282088-72c9c27ed0cd
-- https://images.unsplash.com/photo-1493238792000-8113da705763
-- https://images.unsplash.com/photo-1503376780353-7e6692767b70
+- File: `Circuit de Spa-Francorchamps, April 22, 2018 SkySat (cropped).jpg`
+- Author: Planet Labs, Inc.
+- License: Creative Commons Attribution-ShareAlike 4.0 International
+- Source: Wikimedia Commons
 
-Circuit diagrams, interface artwork and application icons are original project assets generated for SimGrid.
+## Suzuka
+
+- File: `Suzuka International Racing Course, July 10, 2018 SkySat (cropped).jpg`
+- Author: Planet Labs, Inc.
+- License: Creative Commons Attribution-ShareAlike 4.0 International
+- Source: Wikimedia Commons
+
+## Monza
+
+- File: `Autodromo Nazionale Monza, April 22, 2018 SkySat (cropped).jpg`
+- Author: Planet Labs, Inc.
+- License: Creative Commons Attribution-ShareAlike 4.0 International
+- Source: Wikimedia Commons
+
+## Silverstone
+
+- File: `Silverstone circuit and village - geograph.org.uk - 3639681.jpg`
+- Author: M J Richardson
+- License: Creative Commons Attribution-ShareAlike 2.0 Generic
+- Source: Geograph / Wikimedia Commons
+
+Remaining guide covers use the existing Unsplash image references listed in `data.js`; if they are unavailable, SimGrid displays its bundled circuit-map fallback. Circuit diagrams, telemetry components, interface artwork and application icons are project assets created for SimGrid.

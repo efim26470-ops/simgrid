@@ -61,8 +61,8 @@
     {id:'w13', name:'Formula Hybrid 2022', class:'Formula', games:['ac','f1'], drivetrain:'RWD', power:1000, weight:798},
     {id:'f124', name:'F1 2024 Car', class:'Formula', games:['f1'], drivetrain:'RWD', power:1000, weight:798},
     {id:'f2004', name:'Ferrari F2004', class:'Formula Classic', games:['ac','ace'], drivetrain:'RWD', power:865, weight:605},
-    {id:'lmp2', name:'Dallara P217', class:'LMP2', games:['iracing'], drivetrain:'RWD', power:600, weight:930},
-    {id:'499p', name:'Ferrari 499P', class:'Hypercar', games:['iracing','ace'], drivetrain:'AWD', power:680, weight:1030},
+    {id:'lmp2', name:'Dallara P217', class:'LMP2', games:['iracing','rf2','lmu'], drivetrain:'RWD', power:600, weight:930},
+    {id:'499p', name:'Ferrari 499P', class:'Hypercar', games:['iracing','ace','lmu'], drivetrain:'AWD', power:680, weight:1030},
     {id:'963', name:'Porsche 963 GTP', class:'GTP', games:['iracing'], drivetrain:'RWD', power:680, weight:1030},
     {id:'bmwmhybrid', name:'BMW M Hybrid V8', class:'GTP', games:['iracing'], drivetrain:'RWD', power:680, weight:1030},
     {id:'e30drift', name:'BMW E30 Drift', class:'Drift', games:['ac'], drivetrain:'RWD', power:420, weight:1150},
@@ -75,10 +75,10 @@
   ];
 
   const guidePhotos = [
-    'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=78',
-    'https://images.unsplash.com/photo-1532906619279-a4b7267faa66?auto=format&fit=crop&w=1400&q=78',
-    'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1400&q=78',
-    'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1400&q=78',
+    'assets/guides/spa.jpg',
+    'assets/guides/monza.jpg',
+    'assets/guides/silverstone.jpg',
+    'assets/guides/suzuka.jpg',
     'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=78'
   ];
 
@@ -141,6 +141,130 @@
     ], setup:['Механическое сцепление','Среднее крыло','Стабильные тормоза на спуске'], mistakes:['Поздний вход в Corkscrew','Недостаточный поворот в Andretti','Перегрев передних шин']}
   ];
 
+
+
+  guides.push(
+    {track:'nurburgring',level:'Продвинутый',photo:guidePhotos[4],summary:'Комбинация медленных шпилек, связок и зон, где важнее подготовка выхода, чем позднее торможение.',sectors:[
+      {name:'Yokohama-S',gear:'2–3',tip:'Тормози прямо и не жертвуй выходом из второй части связки.'},
+      {name:'Mercedes Arena',gear:'2–3',tip:'Собери поздний апекс и не перегружай переднюю ось.'},
+      {name:'Schumacher-S',gear:'5–6',tip:'Один плавный поворот руля и стабильная платформа.'},
+      {name:'Veedol Chicane',gear:'2–3',tip:'Контролируй поребрик: слишком глубокая атака разрушает выход.'},
+      {name:'Coca-Cola',gear:'2–3',tip:'Поздний апекс открывает полный газ на прямую.'}
+    ],setup:['Стабильность на торможении','Среднее крыло','Контроль поребриков'],mistakes:['Ранний апекс Mercedes Arena','Лишняя коррекция в Schumacher-S','Слишком высокий поребрик Veedol']},
+    {track:'cota',level:'Эксперт',photo:guidePhotos[0],summary:'Резкие смены направления, длинные дуги и несколько разных типов торможения в одном круге.',sectors:[
+      {name:'Turn 1',gear:'1–2',tip:'Используй подъём для позднего торможения, но сохрани внутреннюю линию.'},
+      {name:'Esses 3–6',gear:'4–6',tip:'Каждый следующий апекс важнее предыдущего; не атакуй первый слишком сильно.'},
+      {name:'Turn 11',gear:'1–2',tip:'Поздний апекс и ранний газ на длинную прямую.'},
+      {name:'Turn 12',gear:'1–2',tip:'Главная точка обгона: тормози строго прямо.'},
+      {name:'Turn 16–18',gear:'4–5',tip:'Держи постоянную дугу и избегай лишнего скольжения передних шин.'}
+    ],setup:['Средне-высокое крыло','Хорошая ротация в медленных поворотах','Защита передних шин'],mistakes:['Слишком ранний вход в Esses','Потеря выхода T11','Перегрев передних шин в T16–18']},
+    {track:'interlagos',level:'Продвинутый',photo:guidePhotos[2],summary:'Короткий круг с перепадом высот: решают выход из Senna S и тяга на подъёме к финишу.',sectors:[
+      {name:'Senna S',gear:'2–4',tip:'Первый апекс — подготовка, второй определяет разгон вниз.'},
+      {name:'Descida do Lago',gear:'2–4',tip:'Тормози прямо и собери поздний второй апекс.'},
+      {name:'Ferradura',gear:'3–4',tip:'Плавный вход и терпение с газом сохраняют задние шины.'},
+      {name:'Bico de Pato',gear:'1–2',tip:'Не торопись с апексом: важен выход на подъём.'},
+      {name:'Junção',gear:'2–3',tip:'Ранний газ при распрямлённом руле даёт скорость до финиша.'}
+    ],setup:['Хорошая тяга','Среднее крыло','Контроль задних шин'],mistakes:['Слишком ранний апекс Senna S','Пробуксовка в Bico de Pato','Широкий выход Junção']},
+    {track:'lemans',level:'Эксперт',photo:guidePhotos[4],summary:'Длинный endurance-круг: низкое сопротивление должно сочетаться со стабильностью на торможении.',sectors:[
+      {name:'Dunlop Chicane',gear:'2–4',tip:'Тормози прямо и не атакуй второй поребрик слишком жёстко.'},
+      {name:'Tertre Rouge',gear:'3–4',tip:'Поздний апекс максимизирует скорость на Mulsanne.'},
+      {name:'Mulsanne Chicanes',gear:'2–6',tip:'Стабильность на высокоскоростном торможении важнее последнего метра.'},
+      {name:'Indianapolis / Arnage',gear:'1–4',tip:'Раздели торможение и поворот; Arnage требует терпения.'},
+      {name:'Porsche Curves',gear:'5–6',tip:'Один ритм и минимальные коррекции — ключ к стабильности.'}
+    ],setup:['Низкое сопротивление','Стабильная платформа','Надёжные тормоза'],mistakes:['Ранний апекс Tertre Rouge','Нестабильность Mulsanne','Лишние коррекции Porsche Curves']},
+    {track:'daytona',level:'Средний',photo:guidePhotos[1],summary:'Сочетание бэнкинга и медленного infield требует компромисса между скоростью и механическим сцеплением.',sectors:[
+      {name:'Turn 1',gear:'2–4',tip:'Тормози на переходе с бэнкинга и не перегружай внутреннюю переднюю шину.'},
+      {name:'International Horseshoe',gear:'1–2',tip:'Поздний апекс и чистая тяга важнее скорости входа.'},
+      {name:'West Horseshoe',gear:'2–3',tip:'Стабилизируй машину до газа и не выезжай на грязную часть.'},
+      {name:'Bus Stop',gear:'3–6',tip:'Чистый первый поворот задаёт всю шикану; используй бордюры дозированно.'},
+      {name:'NASCAR Turns',gear:'6–7',tip:'Минимум движений рулём и контроль температуры шин.'}
+    ],setup:['Низкое сопротивление','Стабильность на бэнкинге','Механическое сцепление infield'],mistakes:['Позднее торможение T1','Ранний газ Horseshoe','Слишком глубокий первый поребрик Bus Stop']},
+    {track:'brands',level:'Продвинутый',photo:guidePhotos[3],summary:'Узкая трасса с перепадами высот: точность позиционирования важнее широкой атаки.',sectors:[
+      {name:'Paddock Hill Bend',gear:'3–4',tip:'Тормози до гребня и дай машине опуститься к позднему апексу.'},
+      {name:'Druids',gear:'1–2',tip:'Не торопись с газом: выход определяет следующий спуск.'},
+      {name:'Graham Hill Bend',gear:'2–3',tip:'Используй ширину входа и не режь внутренний поребрик.'},
+      {name:'Hawthorn Bend',gear:'4–5',tip:'Стабильная платформа и один поворот руля.'},
+      {name:'Clark Curve',gear:'3–4',tip:'Приоритет выхода на Brabham Straight.'}
+    ],setup:['Среднее крыло','Стабильность на перепадах','Хорошая тяга'],mistakes:['Широкий выход Paddock Hill','Ранний газ Druids','Атака внутреннего поребрика Graham Hill']}
+  );
+
+  const localGuidePhotos = {
+    spa:'assets/guides/spa.jpg',
+    monza:'assets/guides/monza.jpg',
+    silverstone:'assets/guides/silverstone.jpg',
+    suzuka:'assets/guides/suzuka.jpg'
+  };
+  const trainingModes = [
+    {id:'quali',name:'Квалификация',icon:'⚡',focus:'Максимум темпа',note:'Используй всю ширину трассы, подготавливай шины и атакуй поздний апекс.'},
+    {id:'race',name:'Гонка',icon:'🏁',focus:'Стабильность',note:'Оставляй запас на грязный воздух, износ и борьбу колесо в колесо.'},
+    {id:'wet',name:'Дождь',icon:'◉',focus:'Сцепление',note:'Тормози раньше, избегай глянцевой траектории и распрямляй машину до газа.'},
+    {id:'defence',name:'Защита',icon:'◆',focus:'Позиция',note:'Закрывай внутреннюю линию заранее и приоритетно готовь выход.'}
+  ];
+  const speedByGear = {1:72,2:96,3:126,4:158,5:196,6:232,7:270};
+  guides.forEach((g,guideIndex)=>{
+    g.photo=localGuidePhotos[g.track]||g.photo;
+    g.modes=trainingModes;
+    g.checklist=[
+      'Пять чистых кругов подряд',
+      'Стабильная точка торможения',
+      'Ранний взгляд на выход',
+      'Без лишних коррекций рулём',
+      'Разброс серии меньше 0,7 секунды'
+    ];
+    g.sectors=g.sectors.map((sector,index)=>{
+      const gearMatch=String(sector.gear).match(/(\d)/g)||['3'];
+      const gear=Number(gearMatch[gearMatch.length-1])||3;
+      const entry=Math.max(55,(speedByGear[gear]||126)-index*3);
+      return {...sector,
+        braking:index===0?'150–120 м':index===g.sectors.length-1?'120–80 м':`${Math.max(55,130-index*12)}–${Math.max(35,95-index*9)} м`,
+        entrySpeed:`≈ ${entry} км/ч`,
+        apex:index%3===0?'Поздний':index%3===1?'Нейтральный':'Двойной / прогрессивный',
+        throttle:index%2===0?'Открывай после стабилизации руля':'Плавно добавляй с середины дуги',
+        curb:index%3===0?'Умеренно, без удара днищем':index%3===1?'Можно использовать на выходе':'Избегай высокого внутреннего',
+        telemetry:{brake:Math.max(22,82-index*9),throttle:Math.min(92,38+index*12),steering:Math.max(28,76-index*7)}
+      };
+    });
+    const first=g.sectors[0],second=g.sectors[1]||first;
+    g.quiz=[
+      {q:`Какая передача указана для зоны «${first.name}»?`,options:[first.gear,'4–5','6–7'],answer:0},
+      {q:`Какой ориентир торможения рекомендуется для «${second.name}»?`,options:['После апекса',second.braking,'Только по ощущениям'],answer:1},
+      {q:'Какой подход лучше для стабильной тренировки?',options:['Один максимальный круг','Серии по 5 чистых кругов','Постоянная смена машины'],answer:1},
+      {q:'Какая ошибка отмечена в этом гайде?',options:[g.mistakes[0],'Всегда ранний газ','Слишком низкое давление на старте'],answer:0},
+      {q:'Какой параметр сетапа особенно важен?',options:['Случайный выбор давления',g.setup[0],'Максимально жёсткая подвеска'],answer:1}
+    ];
+  });
+
+  const setupLibrarySeeds = [
+    ['ACC · Spa Stable','acc','spa','m4gt3','dry',24,'Race','Стабильная задняя ось и предсказуемый выход из быстрых дуг.'],
+    ['ACC · Spa Qualifying','acc','spa','296gt3','dry',21,'Quali','Острый передок и короткий топливный стинт для атаки.'],
+    ['ACC · Monza Low Drag','acc','monza','720gt3','dry',28,'Low drag','Минимум сопротивления и устойчивость на жёстком торможении.'],
+    ['ACC · Monza Wet Safe','acc','monza','amggt3','wet',16,'Rain','Мягкая реакция, высокий TC и запас по клиренсу.'],
+    ['ACC · Nürburgring Race','acc','nurburgring','911gt3r','dry',22,'Race','Нейтральный баланс для длинного стинта.'],
+    ['ACC · Imola Kerbs','acc','imola','huracangt3','dry',25,'Kerbs','Податливая подвеска и контроль поребриков.'],
+    ['iRacing · Watkins GTP','iracing','watkins','963','dry',27,'Endurance','Умеренный аэробаланс и ровная деградация.'],
+    ['iRacing · Daytona GTP','iracing','daytona','bmwmhybrid','dry',30,'Endurance','Низкое сопротивление и стабильность в бэнкинге.'],
+    ['iRacing · Sebring LMP2','iracing','sebring','lmp2','hot',34,'Bumpy','Мягче на кочках и безопаснее на торможении.'],
+    ['iRacing · Laguna MX-5','iracing','laguna','mx5','dry',20,'Training','Простой учебный баланс без резкой избыточной поворачиваемости.'],
+    ['F1 · Silverstone Quali','f1','silverstone','f124','dry',19,'Quali','Высокая скорость смены направления в Maggotts–Becketts.'],
+    ['F1 · Suzuka Race','f1','suzuka','f124','dry',26,'Race','Ритм S Curves и стабильный зад на Spoon.'],
+    ['F1 · Bahrain Hot','f1','bahrain','f124','hot',38,'Hot','Контроль перегрева задних шин и тяги.'],
+    ['AC · Nordschleife Road','ac','nurburgring','roadcar','dry',18,'Road','Безопасная платформа для изучения неровностей и слепых зон.'],
+    ['AC · Drift Technical','ac','drift','s15drift','dry',23,'Drift','Прогрессивный дифференциал и контролируемая перекладка.'],
+    ['AC EVO · Barcelona GT','ace','barcelona','gt4cayman','dry',24,'Balanced','Понятный баланс для длинных среднескоростных дуг.'],
+    ['LMU · Le Mans Hypercar','lmu','lemans','499p','dry',22,'Endurance','Низкое сопротивление и стабильность на торможении Mulsanne.'],
+    ['rFactor 2 · Road Atlanta','rf2','roadatlanta','lmp2','dry',29,'Prototype','Контроль платформы на перепадах высот.'],
+    ['AMS2 · Interlagos GT','ams2','interlagos','m4gt3','wet',18,'Mixed','Запас сцепления и плавный дифференциал для переменных условий.'],
+    ['RaceRoom · Daytona TCR','raceroom','daytona','rs3tcr','dry',27,'TCR','Стабильный передний привод и контроль перегрева передних шин.']
+  ];
+  const setupLibrary = setupLibrarySeeds.map((seed,index)=>{
+    const [name,game,track,car,weather,temp,style,description]=seed;
+    const wet=weather==='wet'||weather==='mixed';
+    return {id:`library-${index+1}`,library:true,name,game,track,car,weather,temperature:temp,style,description,
+      tags:[style,weather==='wet'?'Rain':weather==='hot'?'Hot':'Dry'],rating:Number((4.2+(index%7)*0.1).toFixed(1)),downloads:180+index*37,
+      values:{frontPressure:wet?25.8:26.6+(index%3)*.1,rearPressure:wet?25.9:26.7+(index%2)*.1,frontWing:4+(index%5),rearWing:7+(index%6),frontARB:3+(index%5),rearARB:2+(index%4),frontRide:54+(index%8),rearRide:66+(index%9),brakeBias:52.5+(index%6)*.5,tc:wet?7:2+(index%5),abs:wet?6:2+(index%4),fuel:style==='Quali'?18:style==='Endurance'?95:55,camberFront:-3.2+(index%3)*.1,camberRear:-2.8+(index%3)*.1,toeFront:0.02+(index%3)*.01,toeRear:0.12+(index%4)*.02,diffPower:45+(index%5)*5,diffCoast:35+(index%4)*5,springFront:140000+index*2500,springRear:128000+index*2200}
+    };
+  });
+
   const profiles = [
     {id:'sprint', name:'Sprint', icon:'S', hint:'GT / Formula', goalLaps:35, goalSessions:4, focus:'Темп'},
     {id:'endurance', name:'Endurance', icon:'E', hint:'Long run / Multiclass', goalLaps:120, goalSessions:3, focus:'Стабильность'},
@@ -173,5 +297,5 @@
     {id:'setup-3', name:'Watkins Long Run', profileId:'endurance', game:'iracing', track:'watkins', car:'963', created:'2026-07-07', tags:['Endurance','Safe'], values:{frontPressure:24.5,rearPressure:24.7,frontWing:7,rearWing:10,frontARB:5,rearARB:3,frontRide:42,rearRide:58,brakeBias:52.6,tc:3,abs:2,fuel:70,springFront:180000,springRear:165000}}
   ];
 
-  window.SIMGRID_DATA = {games, tracks, cars, guides, profiles, themes, sampleSessions, sampleSetups};
+  window.SIMGRID_DATA = {games, tracks, cars, guides, setupLibrary, profiles, themes, sampleSessions, sampleSetups};
 })();

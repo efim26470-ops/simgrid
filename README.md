@@ -1,43 +1,55 @@
-# SimGrid PWA
+# SimGrid PWA v2.0
 
-Local-first manager for sim-racing sessions, setups, strategy and track guides. Designed for iPhone Home Screen and desktop browsers.
+Local-first iOS/desktop manager for sim-racing sessions, setups, strategy and track training. The project is fully static and deploys directly to GitHub Pages without a build step.
 
-## Included
+## Track Academy Pro
 
-- Assetto Corsa, ACC, iRacing, EA SPORTS F1, Assetto Corsa EVO and custom games
-- session journal with lap series, best/average lap and consistency calculation
+- 14 expanded track guides with key zones, braking references, entry-speed orientation, apex type, throttle phase and curb usage
+- qualifying, race, wet and defensive training modes
+- visual telemetry references for brake, throttle and steering input
+- persistent training checklists and progress per track
+- five-question mini tests with saved results
+- local aerial imagery for Spa, Monza, Silverstone and Suzuka; circuit map fallback for other tracks
+
+Braking distances and speeds are starting references rather than universal targets. They vary by simulator, car, setup, fuel, tyres, assists, weather and track conditions.
+
+## Setup Garage Pro
+
+- personal garage plus a built-in library of 20 starter setups
+- filters by simulator, track, weather, text and favorites
+- dry, wet, hot and mixed-condition profiles
+- ratings, tags, notes and temperature
+- setup analysis for aero balance, mechanical balance, rake/platform, brake balance and tyre pressure
+- extended parameters: camber, toe and power/coast differential
+- version history with rollback
+- favorites, library copying and side-by-side comparison
+
+## Other features
+
+- Assetto Corsa, ACC, iRacing, F1, Assetto Corsa EVO, rFactor 2, Le Mans Ultimate, Automobilista 2 and RaceRoom
+- local session journal, lap series, personal records and consistency calculation
 - Live Activity-like session timer
-- fuel, tyre and pit-stop strategy calculator with four variants
-- setup storage and side-by-side comparison
-- progress chart and personal records
-- 19 tracks, 30 cars and 8 detailed track guides
+- strategy calculator with fuel, tyre life, pit loss and multiple variants
 - Sprint, Endurance, Formula and Drift profiles
-- 8 complete visual themes
+- eight visual themes
 - JSON backup, CSV export and JSON/CSV import
-- offline service worker, iOS icons and install metadata
+- offline service worker and iOS Home Screen metadata
 - optional Steam Worker and PC telemetry bridge
 
 ## GitHub Pages deployment
 
-1. Create a repository, for example `simgrid`.
-2. Upload the **contents** of this folder to the repository root.
-3. Open **Settings → Pages**.
-4. Select **Deploy from a branch**, branch `main`, folder `/root`.
-5. Open `https://USERNAME.github.io/simgrid/`.
-6. On iPhone in Safari: **Share → Add to Home Screen**.
+1. Upload the **contents** of this folder to the repository root.
+2. Open **Settings → Pages**.
+3. Select **Deploy from a branch**, branch `main`, folder `/root`.
+4. Open the published URL once in Safari.
+5. On iPhone use **Share → Add to Home Screen**.
 
-No build step is required.
+The v2 service worker uses cache `simgrid-v2.0.0`. When replacing an older version, open the site once in Safari before reopening the Home Screen app so the new worker can activate.
 
-## Steam integration
+## Steam and telemetry
 
-A static GitHub Pages site must not contain a Steam Web API key. Deploy the optional file in `steam-worker/` and enter its URL in **Ещё → Steam Connector**.
+A GitHub Pages project must not expose a Steam Web API key. Deploy the optional worker from `steam-worker/` and enter its address inside SimGrid. Steam can provide profile and library information, but it does not store lap telemetry or setup parameters. Session telemetry is imported through `telemetry-bridge/` or compatible JSON/CSV files.
 
-Steam sync imports profile information, owned racing games, playtime and recent games. Steam does not store racing telemetry. Lap data is imported through the included `telemetry-bridge/` or a compatible CSV/JSON export.
+## Privacy
 
-## Data privacy
-
-All sessions and setups are stored in the browser's local storage. Export a JSON backup before clearing Safari website data or changing devices.
-
-## Guide images
-
-Guide cover images load from Unsplash on first view and are then cached by the service worker. Circuit diagrams and trajectory schematics are bundled in the application code. See `CREDITS.md`.
+Sessions, setup versions, favorites, guide progress and quiz results are stored locally in browser storage. Export a JSON backup before clearing Safari website data or moving to another device.
