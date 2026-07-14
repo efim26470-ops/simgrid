@@ -1,64 +1,43 @@
-# SimGrid PWA v1.1.0
+# SimGrid PWA
 
-Локальный менеджер автосимулятора для iPhone, macOS и Windows. Приложение работает без сборщика и публикуется напрямую через GitHub Pages.
+Local-first manager for sim-racing sessions, setups, strategy and track guides. Designed for iPhone Home Screen and desktop browsers.
 
-## Что входит в v1.1.0
+## Included
 
-- 10 симуляторов и игровых платформ;
-- 38 трасс и 95 конфигураций;
-- 40 автомобилей из классов GT, Formula, Prototype, Touring, Cup, Road и Drift;
-- журнал сессий с сериями кругов, лучшим и средним временем, дельтой и стабильностью;
-- Live Activity-подобный экран текущей сессии;
-- профили Sprint, Endurance, Formula и Drift;
-- 12 переработанных визуальных гайдов с локальными фотографиями, схемами трасс, ключевыми зонами, фазами поворота, ошибками, настройками и тренировочными чеклистами;
-- расширенный расчёт стратегии: топливо, резерв, износ, обязательные составы, пит-лейн, трафик, Safety Car/VSC, дождь, undercut, overcut и смена пилота;
-- четыре сравниваемых варианта стратегии;
-- расширенный редактор сетапа: шины, геометрия, подвеска, аэродинамика, трансмиссия, тормоза и электроника;
-- сравнение двух сетапов по группам параметров;
-- личные рекорды и график прогресса только для одинаковой связки «игра — трасса — конфигурация — автомобиль»;
-- 8 полноценных визуальных тем с корректными превью;
-- экспорт полной копии JSON, экспорт таблицы CSV и импорт JSON/CSV;
-- офлайн-кэш, иконки PWA и поддержка safe-area iPhone.
+- Assetto Corsa, ACC, iRacing, EA SPORTS F1, Assetto Corsa EVO and custom games
+- session journal with lap series, best/average lap and consistency calculation
+- Live Activity-like session timer
+- fuel, tyre and pit-stop strategy calculator with four variants
+- setup storage and side-by-side comparison
+- progress chart and personal records
+- 19 tracks, 30 cars and 8 detailed track guides
+- Sprint, Endurance, Formula and Drift profiles
+- 8 complete visual themes
+- JSON backup, CSV export and JSON/CSV import
+- offline service worker, iOS icons and install metadata
+- optional Steam Worker and PC telemetry bridge
 
-## Исправления интерфейса
+## GitHub Pages deployment
 
-- модальные окна больше не выходят за экран и не перекрываются нижними кнопками;
-- контент гайда прокручивается независимо от закреплённой панели действий;
-- добавлены безопасные отступы для верхней и нижней зоны iPhone;
-- схемы и подписи больше не накладываются друг на друга;
-- пустые изображения заменены локальными WebP-материалами с fallback-схемой;
-- декоративные маркеры тем больше не вылетают за границы карточек;
-- уведомления показываются через очередь по одному и не перекрывают интерфейс;
-- повторное нажатие на уже активный профиль не создаёт лишнее уведомление.
+1. Create a repository, for example `simgrid`.
+2. Upload the **contents** of this folder to the repository root.
+3. Open **Settings → Pages**.
+4. Select **Deploy from a branch**, branch `main`, folder `/root`.
+5. Open `https://USERNAME.github.io/simgrid/`.
+6. On iPhone in Safari: **Share → Add to Home Screen**.
 
-## Публикация через GitHub Pages
+No build step is required.
 
-1. Создайте репозиторий, например `simgrid`.
-2. Загрузите **содержимое** этой папки в корень репозитория.
-3. Откройте **Settings → Pages**.
-4. Выберите **Deploy from a branch**, ветку `main`, папку `/root`.
-5. Откройте `https://USERNAME.github.io/simgrid/`.
-6. На iPhone откройте сайт в Safari и выберите **Поделиться → На экран «Домой»**.
+## Steam integration
 
-Сборка через npm не требуется. Файл `.nojekyll` уже добавлен.
+A static GitHub Pages site must not contain a Steam Web API key. Deploy the optional file in `steam-worker/` and enter its URL in **Ещё → Steam Connector**.
 
-## Steam Connector
+Steam sync imports profile information, owned racing games, playtime and recent games. Steam does not store racing telemetry. Lap data is imported through the included `telemetry-bridge/` or a compatible CSV/JSON export.
 
-GitHub Pages — статический хостинг, поэтому Steam Web API key нельзя помещать в `app.js`. Для безопасного подключения используется Worker из папки `steam-worker/`.
+## Data privacy
 
-Steam Connector может получить:
+All sessions and setups are stored in the browser's local storage. Export a JSON backup before clearing Safari website data or changing devices.
 
-- открытые данные профиля;
-- библиотеку поддерживаемых симуляторов;
-- время в играх;
-- недавно запущенные игры.
+## Guide images
 
-Steam не хранит круговую телеметрию, давление шин и сетапы. Эти данные импортируются через `telemetry-bridge/`, JSON/CSV или записываются вручную.
-
-## Локальные данные
-
-Сессии, профили, сетапы и настройки хранятся в `localStorage` текущего браузера. Перед очисткой данных Safari или переносом на другое устройство скачайте полную JSON-копию во вкладке **Ещё**.
-
-## Визуальные материалы гайдов
-
-Фотографии трасс сохранены локально в `assets/guides/`, оптимизированы и конвертированы в WebP. Приложение не зависит от стороннего CDN при открытии гайдов. Авторы, лицензии и исходные страницы перечислены в `CREDITS.md`.
+Guide cover images load from Unsplash on first view and are then cached by the service worker. Circuit diagrams and trajectory schematics are bundled in the application code. See `CREDITS.md`.

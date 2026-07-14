@@ -1,7 +1,7 @@
 {
   "name": "SimGrid — менеджер автосимулятора",
   "short_name": "SimGrid",
-  "description": "Сессии, телеметрия, сетапы, стратегия и офлайн-гайды для автосимуляторов.",
+  "description": "Результаты заездов, телеметрия, сетапы, стратегия и гайды.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -9,47 +9,13 @@
   "background_color": "#090b10",
   "theme_color": "#090b10",
   "lang": "ru",
-  "categories": [
-    "sports",
-    "utilities",
-    "productivity"
-  ],
+  "categories": ["sports", "utilities", "productivity"],
   "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
   ],
   "shortcuts": [
-    {
-      "name": "Новая сессия",
-      "short_name": "Сессия",
-      "url": "./?action=new-session",
-      "icons": [
-        {
-          "src": "icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Стратегия",
-      "short_name": "Стратегия",
-      "url": "./?view=strategy",
-      "icons": [
-        {
-          "src": "icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
-    }
+    {"name":"Новая сессия","short_name":"Сессия","url":"./?action=new-session","icons":[{"src":"icons/icon-192.png","sizes":"192x192"}]},
+    {"name":"Стратегия","short_name":"Стратегия","url":"./?view=strategy","icons":[{"src":"icons/icon-192.png","sizes":"192x192"}]}
   ]
 }
