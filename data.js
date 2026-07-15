@@ -272,9 +272,10 @@
 
   guides.forEach((g,guideIndex)=>{
     const t=tracks.find(item=>item.id===g.track);
-    g.cover=buildGuideArt(t||tracks[0], g.level);
-    g.photo=localGuidePhotos[g.track]||g.cover;
-    g.hero=g.photo;
+    g.cover=localGuideCovers[g.track]||'';
+    g.photo=localGuidePhotos[g.track]||'';
+    g.hero=g.photo||g.cover||'';
+    g.visual=g.cover ? 'photo' : 'schematic';
     g.modes=trainingModes;
     g.checklist=[
       'Пять чистых кругов подряд',

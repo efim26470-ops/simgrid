@@ -1,4 +1,4 @@
-const CACHE = 'simgrid-v2.1.0';
+const CACHE = 'simgrid-v2.1.1';
 const CORE = [
   './','./index.html','./styles.css','./data.js','./app.js','./manifest.webmanifest',
   './icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png',
