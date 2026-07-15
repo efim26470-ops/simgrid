@@ -1,6 +1,6 @@
-const CACHE = 'simgrid-v2.2.0';
+const CACHE = 'simgrid-v2.2.1';
 const CORE = [
-  './','./index.html','./styles.css','./data.js','./app.js','./manifest.webmanifest',
+  './','./index.html','./styles.css?v=2.2.1','./data.js?v=2.2.1','./app.js?v=2.2.1','./manifest.webmanifest?v=2.2.1',
   './icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png',
   './assets/guides/spa.jpg','./assets/guides/monza.jpg','./assets/guides/silverstone.jpg','./assets/guides/suzuka.jpg',
   './assets/guides/cover-spa.jpg',

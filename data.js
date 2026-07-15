@@ -274,7 +274,11 @@
     const t=tracks.find(item=>item.id===g.track);
     g.cover=localGuideCovers[g.track]||`assets/guides/generated-${g.track}.svg`;
     g.photo=localGuidePhotos[g.track]||'';
-    g.hero=g.photo||g.cover||'';
+    // Card covers already contain typography, badges and a track map. Reusing
+    // them as a cropped modal photo duplicates that UI and cuts it off on the
+    // narrower macOS/iPad layouts. Only genuine photos belong in the photo
+    // hero; every other guide gets the responsive schematic from app.js.
+    g.hero=g.photo||'';
     g.visual=g.cover ? 'photo' : 'schematic';
     g.modes=trainingModes;
     g.checklist=[

@@ -1,4 +1,4 @@
-# SimGrid PWA v2.0.1
+# SimGrid PWA v2.2.1
 
 Local-first iOS/desktop manager for sim-racing sessions, setups, strategy and track training. The project is fully static and deploys directly to GitHub Pages without a build step.
 
@@ -44,7 +44,7 @@ Braking distances and speeds are starting references rather than universal targe
 4. Open the published URL once in Safari.
 5. On iPhone use **Share → Add to Home Screen**.
 
-The v2 service worker uses cache `simgrid-v2.0.1`. When replacing an older version, open the site once in Safari before reopening the Home Screen app so the new worker can activate.
+The v2 service worker uses cache `simgrid-v2.2.1`. When replacing an older version, open the site once in Safari before reopening the Home Screen app so the new worker can activate.
 
 ## Steam and telemetry
 
@@ -62,3 +62,8 @@ Sessions, setup versions, favorites, guide progress and quiz results are stored 
 - Добавлены более заметные анимации появления карточек, отрисовки трека, открытия модального окна и hover/active-состояния.
 - Расширены детали каталога: тренировочный план для трассы и инженерная подсказка для автомобиля.
 
+## v2.2.1 — guide modal fix
+
+- Обложки карточек больше не обрезаются и не дублируют текст внутри модального гайда.
+- Уточнены динамическая высота, safe-area, заголовок и горизонтальное переполнение модальных окон на macOS/iOS.
+- Обновлена версия PWA-кэша, чтобы установленное приложение получило визуальные исправления.
