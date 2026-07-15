@@ -194,6 +194,10 @@
     silverstone:'assets/guides/silverstone.jpg',
     suzuka:'assets/guides/suzuka.jpg'
   };
+  const localGuideCovers = Object.fromEntries([
+    'spa','monza','silverstone','suzuka','mountpanorama','zandvoort','imola','laguna',
+    'nurburgring','cota','interlagos','lemans','daytona','brands'
+  ].map(id=>[id,`assets/guides/cover-${id}.jpg`]));
   const trainingModes = [
     {id:'quali',name:'Квалификация',icon:'⚡',focus:'Максимум темпа',note:'Используй всю ширину трассы, подготавливай шины и атакуй поздний апекс.'},
     {id:'race',name:'Гонка',icon:'🏁',focus:'Стабильность',note:'Оставляй запас на грязный воздух, износ и борьбу колесо в колесо.'},
@@ -201,8 +205,76 @@
     {id:'defence',name:'Защита',icon:'◆',focus:'Позиция',note:'Закрывай внутреннюю линию заранее и приоритетно готовь выход.'}
   ];
   const speedByGear = {1:72,2:96,3:126,4:158,5:196,6:232,7:270};
+  const autoGuideZoneNames = {
+    road:['Старт / T1','Быстрая связка','Ключевая шпилька','Тяговый выход','Последний сектор'],
+    mixed:['Старт / T1','Медленный infield','Смена направления','Скоростная дуга','Выход на прямую'],
+    drift:['Инициация','Первая перекладка','Средняя дуга','Ключевой клиппинг','Финишный выход']
+  };
+  function guideLevelByDifficulty(value){return value>=5?'Эксперт':value>=4?'Продвинутый':'Средний';}
+  function buildGuideArt(trackItem, level='Продвинутый'){
+    const tone = level==='Эксперт' ? '#ff7a18' : level==='Средний' ? '#6fa8ff' : '#ffffff';
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#111725"/><stop offset="60%" stop-color="#0d1220"/><stop offset="100%" stop-color="#0a0f19"/></linearGradient>
+        <radialGradient id="glow" cx="0.15" cy="0.2" r="0.6"><stop offset="0%" stop-color="${tone}" stop-opacity="0.28"/><stop offset="100%" stop-color="${tone}" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1600" height="900" rx="44" fill="url(#bg)"/>
+      <rect width="1600" height="900" rx="44" fill="url(#glow)"/>
+      <g opacity="0.12" stroke="#ffffff">
+        <path d="M0 180 H1600"/><path d="M0 360 H1600"/><path d="M0 540 H1600"/><path d="M0 720 H1600"/>
+        <path d="M320 0 V900"/><path d="M640 0 V900"/><path d="M960 0 V900"/><path d="M1280 0 V900"/>
+      </g>
+      <text x="84" y="112" fill="#c9d1e5" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" letter-spacing="8">TRACK ACADEMY</text>
+      <text x="84" y="190" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="800">${trackItem.name.replace(/&/g,'&amp;')}</text>
+      <text x="84" y="250" fill="#8d96a8" font-family="Arial, Helvetica, sans-serif" font-size="34">${trackItem.country.replace(/&/g,'&amp;')} • ${trackItem.length.toFixed(3)} км • ${trackItem.corners} поворотов</text>
+      <g transform="translate(940,120)">
+        <rect x="0" y="0" width="420" height="420" rx="36" fill="rgba(8,10,14,0.56)" stroke="rgba(255,255,255,0.12)"/>
+        <path d="${trackItem.path}" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" transform="translate(58,58) scale(2.7)"/>
+        <circle cx="106" cy="242" r="12" fill="#ff3b30"/>
+      </g>
+      <g transform="translate(84,660)">
+        ${trackItem.configs.slice(0,4).map((cfg,i)=>`<g transform="translate(${i*204},0)"><rect width="188" height="58" rx="29" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/><text x="94" y="38" text-anchor="middle" fill="#d4dae7" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">${cfg.replace(/&/g,'&amp;')}</text></g>`).join('')}
+      </g>
+    </svg>`;
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+  }
+  function buildAutoGuide(trackItem){
+    const zoneNames = autoGuideZoneNames[trackItem.type] || autoGuideZoneNames.road;
+    const level = guideLevelByDifficulty(trackItem.difficulty || 3);
+    const summaryBase = trackItem.type==='drift'
+      ? 'Тренируй инициацию, перекладки и контроль угла с постепенным набором темпа.'
+      : trackItem.type==='mixed'
+        ? 'Комбинация разных типов поворотов требует компромисса между скоростью на прямой и механическим сцеплением.'
+        : 'Разбей круг на пять опорных зон и работай над торможением, апексом и подготовкой выхода.';
+    const sectors = zoneNames.slice(0,5).map((name,index)=>({
+      name,
+      gear: trackItem.type==='drift' ? ['2–3','3–4','3–4','2–3','3–4'][index] : [`${Math.max(1,2-index)}–${Math.max(2,3-index)}`, '3–4', '2–3', '4–5', '3–4'][index] || '3–4',
+      tip: trackItem.type==='drift'
+        ? ['Зафиксируй точку входа и угол инициации.','Не торопись с резкой перекладкой, строй ритм.','Сохраняй угол, не теряя инерцию.','Попадай в клиппинг без лишнего разворота.','Выпрямляй машину только после завершения дуги.'][index]
+        : ['Определи ориентир торможения и не меняй его каждый круг.','Свяжи повороты в одну дугу и не атакуй первый апекс слишком сильно.','Сделай поздний апекс приоритетом ради выхода.','Работай над тягой: выход важнее скорости входа.','Собери сектор без лишних коррекций и сохрани скорость до линии.'][index],
+      braking: trackItem.type==='drift' ? 'По инерции / ручник по необходимости' : ['150–120 м','120–90 м','100–70 м','90–60 м','120–80 м'][index],
+      entrySpeed: trackItem.type==='drift' ? `≈ ${[78,96,104,82,98][index]} км/ч` : `≈ ${[132,158,108,174,146][index] + (trackItem.difficulty-3)*4} км/ч`,
+      apex: ['Поздний','Плавный','Нейтральный','Поздний','Выходной'][index],
+      throttle: trackItem.type==='drift' ? ['Поддерживай угол газом','Плавная стабилизация','Держи ритм без резких сбросов','Корректируй короткими импульсами','Полное ускорение на выходе'][index] : ['После стабилизации руля','С середины дуги','После позднего апекса','Чем раньше, тем лучше при прямом руле','Открывай полностью на выходе'][index],
+      curb: trackItem.type==='drift' ? 'Не используй высокий внутренний' : ['Умеренно','Минимально','Можно на выходе','Избегай высокого внутреннего','Умеренно на выходе'][index],
+      telemetry:{brake:[78,54,68,42,58][index],throttle:[36,52,44,72,86][index],steering:[72,66,58,46,52][index]}
+    }));
+    const setup = trackItem.type==='drift'
+      ? ['Прогрессивный дифференциал', 'Контроль заднего давления', 'Предсказуемая реакция на перекладке']
+      : ['Стабильность на торможении', 'Предсказуемый баланс на входе', 'Тяга на выходе из медленных зон'];
+    const mistakes = trackItem.type==='drift'
+      ? ['Слишком ранняя инициация', 'Резкая перекладка без подготовки', 'Потеря угла на финише дуги']
+      : ['Слишком позднее торможение в T1', 'Ранний апекс в ключевой медленной зоне', 'Слишком ранний газ на неподготовленном выходе'];
+    return {track:trackItem.id, level, photo:'', summary:summaryBase, sectors, setup, mistakes};
+  }
+  const existingGuideIds = new Set(guides.map(g=>g.track));
+  tracks.filter(t=>!existingGuideIds.has(t.id)).forEach(t=>guides.push(buildAutoGuide(t)));
+
   guides.forEach((g,guideIndex)=>{
-    g.photo=localGuidePhotos[g.track]||g.photo;
+    const t=tracks.find(item=>item.id===g.track);
+    g.cover=buildGuideArt(t||tracks[0], g.level);
+    g.photo=localGuidePhotos[g.track]||g.cover;
+    g.hero=g.photo;
     g.modes=trainingModes;
     g.checklist=[
       'Пять чистых кругов подряд',
@@ -232,6 +304,13 @@
       {q:'Какая ошибка отмечена в этом гайде?',options:[g.mistakes[0],'Всегда ранний газ','Слишком низкое давление на старте'],answer:0},
       {q:'Какой параметр сетапа особенно важен?',options:['Случайный выбор давления',g.setup[0],'Максимально жёсткая подвеска'],answer:1}
     ];
+  });
+
+
+  guides.sort((a,b)=>{
+    const ta=tracks.find(t=>t.id===a.track)?.name||a.track;
+    const tb=tracks.find(t=>t.id===b.track)?.name||b.track;
+    return ta.localeCompare(tb,'ru');
   });
 
   const setupLibrarySeeds = [

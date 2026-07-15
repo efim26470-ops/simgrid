@@ -1,4 +1,4 @@
-# SimGrid PWA v2.0
+# SimGrid PWA v2.0.1
 
 Local-first iOS/desktop manager for sim-racing sessions, setups, strategy and track training. The project is fully static and deploys directly to GitHub Pages without a build step.
 
@@ -9,7 +9,7 @@ Local-first iOS/desktop manager for sim-racing sessions, setups, strategy and tr
 - visual telemetry references for brake, throttle and steering input
 - persistent training checklists and progress per track
 - five-question mini tests with saved results
-- local aerial imagery for Spa, Monza, Silverstone and Suzuka; circuit map fallback for other tracks
+- local aerial imagery for Spa, Monza, Silverstone and Suzuka; unique offline Track Academy blueprint covers for every guide
 
 Braking distances and speeds are starting references rather than universal targets. They vary by simulator, car, setup, fuel, tyres, assists, weather and track conditions.
 
@@ -44,7 +44,7 @@ Braking distances and speeds are starting references rather than universal targe
 4. Open the published URL once in Safari.
 5. On iPhone use **Share → Add to Home Screen**.
 
-The v2 service worker uses cache `simgrid-v2.0.0`. When replacing an older version, open the site once in Safari before reopening the Home Screen app so the new worker can activate.
+The v2 service worker uses cache `simgrid-v2.0.1`. When replacing an older version, open the site once in Safari before reopening the Home Screen app so the new worker can activate.
 
 ## Steam and telemetry
 

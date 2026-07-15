@@ -1,8 +1,22 @@
-const CACHE = 'simgrid-v2.0.0';
+const CACHE = 'simgrid-v2.1.0';
 const CORE = [
   './','./index.html','./styles.css','./data.js','./app.js','./manifest.webmanifest',
   './icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png',
-  './assets/guides/spa.jpg','./assets/guides/monza.jpg','./assets/guides/silverstone.jpg','./assets/guides/suzuka.jpg'
+  './assets/guides/spa.jpg','./assets/guides/monza.jpg','./assets/guides/silverstone.jpg','./assets/guides/suzuka.jpg',
+  './assets/guides/cover-spa.jpg',
+  './assets/guides/cover-monza.jpg',
+  './assets/guides/cover-silverstone.jpg',
+  './assets/guides/cover-suzuka.jpg',
+  './assets/guides/cover-mountpanorama.jpg',
+  './assets/guides/cover-zandvoort.jpg',
+  './assets/guides/cover-imola.jpg',
+  './assets/guides/cover-laguna.jpg',
+  './assets/guides/cover-nurburgring.jpg',
+  './assets/guides/cover-cota.jpg',
+  './assets/guides/cover-interlagos.jpg',
+  './assets/guides/cover-lemans.jpg',
+  './assets/guides/cover-daytona.jpg',
+  './assets/guides/cover-brands.jpg'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));

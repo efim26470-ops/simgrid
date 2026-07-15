@@ -31,3 +31,7 @@ The following aerial photographs are bundled locally in `assets/guides/` and res
 - Source: Geograph / Wikimedia Commons
 
 Remaining guide covers use the existing Unsplash image references listed in `data.js`; if they are unavailable, SimGrid displays its bundled circuit-map fallback. Circuit diagrams, telemetry components, interface artwork and application icons are project assets created for SimGrid.
+
+## Track Academy blueprint covers
+
+The 14 circuit blueprint covers in `assets/guides/cover-*.jpg` were generated specifically for SimGrid from the application’s circuit path data. They are local project artwork and do not contain third-party photographs.
