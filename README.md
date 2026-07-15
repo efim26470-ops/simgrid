@@ -1,4 +1,4 @@
-# SimGrid PWA v2.2.1
+# SimGrid PWA v2.3.0
 
 Local-first iOS/desktop manager for sim-racing sessions, setups, strategy and track training. The project is fully static and deploys directly to GitHub Pages without a build step.
 
@@ -9,7 +9,7 @@ Local-first iOS/desktop manager for sim-racing sessions, setups, strategy and tr
 - visual telemetry references for brake, throttle and steering input
 - persistent training checklists and progress per track
 - five-question mini tests with saved results
-- local aerial imagery for Spa, Monza, Silverstone and Suzuka; unique offline Track Academy blueprint covers for every guide
+- a local raster cover and a separate circuit diagram for all 26 guides; no external image host is required
 
 Braking distances and speeds are starting references rather than universal targets. They vary by simulator, car, setup, fuel, tyres, assists, weather and track conditions.
 
@@ -39,12 +39,12 @@ Braking distances and speeds are starting references rather than universal targe
 ## GitHub Pages deployment
 
 1. Upload the **contents** of this folder to the repository root.
-2. Open **Settings → Pages**.
+2. Open **Settings в†’ Pages**.
 3. Select **Deploy from a branch**, branch `main`, folder `/root`.
 4. Open the published URL once in Safari.
-5. On iPhone use **Share → Add to Home Screen**.
+5. On iPhone use **Share в†’ Add to Home Screen**.
 
-The v2 service worker uses cache `simgrid-v2.2.1`. When replacing an older version, open the site once in Safari before reopening the Home Screen app so the new worker can activate.
+The v2 service worker uses cache `simgrid-v2.3.0`. When replacing an older version, open the site once in Safari before reopening the Home Screen app so the new worker can activate.
 
 ## Steam and telemetry
 
@@ -54,16 +54,24 @@ A GitHub Pages project must not expose a Steam Web API key. Deploy the optional 
 
 Sessions, setup versions, favorites, guide progress and quiz results are stored locally in browser storage. Export a JSON backup before clearing Safari website data or moving to another device.
 
-## v2.2.0 — macOS/iOS visual fix
+## v2.2.0 вЂ” macOS/iOS visual fix
 
-- Пересобран каталог трасс и машин: новые карточки, фильтр по типу трассы / классу машины, улучшенные схемы, стартовые точки и рейтинг сложности.
-- Исправлена визуальная проблема с одинаковой красной точкой на трассах: старт теперь вычисляется из SVG-пути.
-- Обновлены модальные окна для macOS и iOS: аккуратные отступы, стабильная прокрутка, safe-area и нижние действия.
-- Добавлены более заметные анимации появления карточек, отрисовки трека, открытия модального окна и hover/active-состояния.
-- Расширены детали каталога: тренировочный план для трассы и инженерная подсказка для автомобиля.
+- РџРµСЂРµСЃРѕР±СЂР°РЅ РєР°С‚Р°Р»РѕРі С‚СЂР°СЃСЃ Рё РјР°С€РёРЅ: РЅРѕРІС‹Рµ РєР°СЂС‚РѕС‡РєРё, С„РёР»СЊС‚СЂ РїРѕ С‚РёРїСѓ С‚СЂР°СЃСЃС‹ / РєР»Р°СЃСЃСѓ РјР°С€РёРЅС‹, СѓР»СѓС‡С€РµРЅРЅС‹Рµ СЃС…РµРјС‹, СЃС‚Р°СЂС‚РѕРІС‹Рµ С‚РѕС‡РєРё Рё СЂРµР№С‚РёРЅРі СЃР»РѕР¶РЅРѕСЃС‚Рё.
+- РСЃРїСЂР°РІР»РµРЅР° РІРёР·СѓР°Р»СЊРЅР°СЏ РїСЂРѕР±Р»РµРјР° СЃ РѕРґРёРЅР°РєРѕРІРѕР№ РєСЂР°СЃРЅРѕР№ С‚РѕС‡РєРѕР№ РЅР° С‚СЂР°СЃСЃР°С…: СЃС‚Р°СЂС‚ С‚РµРїРµСЂСЊ РІС‹С‡РёСЃР»СЏРµС‚СЃСЏ РёР· SVG-РїСѓС‚Рё.
+- РћР±РЅРѕРІР»РµРЅС‹ РјРѕРґР°Р»СЊРЅС‹Рµ РѕРєРЅР° РґР»СЏ macOS Рё iOS: Р°РєРєСѓСЂР°С‚РЅС‹Рµ РѕС‚СЃС‚СѓРїС‹, СЃС‚Р°Р±РёР»СЊРЅР°СЏ РїСЂРѕРєСЂСѓС‚РєР°, safe-area Рё РЅРёР¶РЅРёРµ РґРµР№СЃС‚РІРёСЏ.
+- Р”РѕР±Р°РІР»РµРЅС‹ Р±РѕР»РµРµ Р·Р°РјРµС‚РЅС‹Рµ Р°РЅРёРјР°С†РёРё РїРѕСЏРІР»РµРЅРёСЏ РєР°СЂС‚РѕС‡РµРє, РѕС‚СЂРёСЃРѕРІРєРё С‚СЂРµРєР°, РѕС‚РєСЂС‹С‚РёСЏ РјРѕРґР°Р»СЊРЅРѕРіРѕ РѕРєРЅР° Рё hover/active-СЃРѕСЃС‚РѕСЏРЅРёСЏ.
+- Р Р°СЃС€РёСЂРµРЅС‹ РґРµС‚Р°Р»Рё РєР°С‚Р°Р»РѕРіР°: С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ РїР»Р°РЅ РґР»СЏ С‚СЂР°СЃСЃС‹ Рё РёРЅР¶РµРЅРµСЂРЅР°СЏ РїРѕРґСЃРєР°Р·РєР° РґР»СЏ Р°РІС‚РѕРјРѕР±РёР»СЏ.
 
-## v2.2.1 — guide modal fix
+## v2.2.1 вЂ” guide modal fix
 
-- Обложки карточек больше не обрезаются и не дублируют текст внутри модального гайда.
-- Уточнены динамическая высота, safe-area, заголовок и горизонтальное переполнение модальных окон на macOS/iOS.
-- Обновлена версия PWA-кэша, чтобы установленное приложение получило визуальные исправления.
+- РћР±Р»РѕР¶РєРё РєР°СЂС‚РѕС‡РµРє Р±РѕР»СЊС€Рµ РЅРµ РѕР±СЂРµР·Р°СЋС‚СЃСЏ Рё РЅРµ РґСѓР±Р»РёСЂСѓСЋС‚ С‚РµРєСЃС‚ РІРЅСѓС‚СЂРё РјРѕРґР°Р»СЊРЅРѕРіРѕ РіР°Р№РґР°.
+- РЈС‚РѕС‡РЅРµРЅС‹ РґРёРЅР°РјРёС‡РµСЃРєР°СЏ РІС‹СЃРѕС‚Р°, safe-area, Р·Р°РіРѕР»РѕРІРѕРє Рё РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕРµ РїРµСЂРµРїРѕР»РЅРµРЅРёРµ РјРѕРґР°Р»СЊРЅС‹С… РѕРєРѕРЅ РЅР° macOS/iOS.
+- РћР±РЅРѕРІР»РµРЅР° РІРµСЂСЃРёСЏ PWA-РєСЌС€Р°, С‡С‚РѕР±С‹ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ РїРѕР»СѓС‡РёР»Рѕ РІРёР·СѓР°Р»СЊРЅС‹Рµ РёСЃРїСЂР°РІР»РµРЅРёСЏ.
+
+## v2.3.0 вЂ” clear Track Academy
+
+- РЈ РІСЃРµС… 26 РіР°Р№РґРѕРІ С‚РµРїРµСЂСЊ РµСЃС‚СЊ Р»РѕРєР°Р»СЊРЅР°СЏ СЂР°СЃС‚СЂРѕРІР°СЏ РѕР±Р»РѕР¶РєР° Рё РѕС‚РґРµР»СЊРЅР°СЏ СЃС…РµРјР° С‚СЂР°СЃСЃС‹.
+- Р”Р»СЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё СЃРѕР·РґР°РЅРЅС‹С… РіР°Р№РґРѕРІ РґРѕР±Р°РІР»РµРЅС‹ СЂРµР°Р»СЊРЅС‹Рµ РЅР°Р·РІР°РЅРёСЏ РєР»СЋС‡РµРІС‹С… Р·РѕРЅ Рё РїРѕРЅСЏС‚РЅС‹Рµ РґРµР№СЃС‚РІРёСЏ РїРѕ РїРѕСЂСЏРґРєСѓ.
+- РќРѕРІС‹Р№ СЃС†РµРЅР°СЂРёР№ С‚СЂРµРЅРёСЂРѕРІРєРё: С‚СЂРё СЂР°Р·РјРёРЅРѕС‡РЅС‹С… РєСЂСѓРіР°, РѕРґРЅР° Р·РѕРЅР° С„РѕРєСѓСЃР° Рё СЃРµСЂРёСЏ РёР· РїСЏС‚Рё С‡РёСЃС‚С‹С… РєСЂСѓРіРѕРІ.
+- РџРµСЂРµСЃРѕР±СЂР°РЅС‹ РєР°СЂС‚РѕС‡РєРё Рё РјРѕРґР°Р»СЊРЅРѕРµ РѕРєРЅРѕ РґР»СЏ СЂРѕРІРЅРѕР№ СЃРµС‚РєРё РЅР° macOS, iPad Рё iPhone.
+- РЈР±СЂР°РЅР° РїРµСЂРµРіСЂСѓР¶РµРЅРЅР°СЏ С‚РµР»РµРјРµС‚СЂРёС‡РµСЃРєР°СЏ РІРёР·СѓР°Р»РёР·Р°С†РёСЏ РёР· РѕСЃРЅРѕРІРЅРѕРіРѕ СЂР°Р·Р±РѕСЂР° Р·РѕРЅ.
