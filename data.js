@@ -272,7 +272,7 @@
 
   guides.forEach((g,guideIndex)=>{
     const t=tracks.find(item=>item.id===g.track);
-    g.cover=localGuideCovers[g.track]||'';
+    g.cover=localGuideCovers[g.track]||`assets/guides/generated-${g.track}.svg`;
     g.photo=localGuidePhotos[g.track]||'';
     g.hero=g.photo||g.cover||'';
     g.visual=g.cover ? 'photo' : 'schematic';

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#25151b"/><stop offset="0.48" stop-color="#0f1725"/><stop offset="1" stop-color="#090d15"/></linearGradient>
+    <radialGradient id="glow" cx="18%" cy="18%" r="58%"><stop offset="0" stop-color="#ff3b30" stop-opacity=".34"/><stop offset="1" stop-color="#ff3b30" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/><rect width="1200" height="675" fill="url(#glow)"/><rect width="1200" height="675" fill="url(#grid)" opacity=".8"/>
+  <g transform="translate(700 54) scale(4.9)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 67 C20 51,35 47,30 31 C25 16,45 10,57 19 C69 28,81 17,88 31 C94 44,81 53,73 60 C65 67,82 82,68 90 C54 98,42 80,31 84 C19 88,10 80,16 67 Z" stroke="rgba(255,255,255,.10)" stroke-width="15"/>
+    <path d="M16 67 C20 51,35 47,30 31 C25 16,45 10,57 19 C69 28,81 17,88 31 C94 44,81 53,73 60 C65 67,82 82,68 90 C54 98,42 80,31 84 C19 88,10 80,16 67 Z" stroke="rgba(255,255,255,.20)" stroke-width="9"/>
+    <path d="M16 67 C20 51,35 47,30 31 C25 16,45 10,57 19 C69 28,81 17,88 31 C94 44,81 53,73 60 C65 67,82 82,68 90 C54 98,42 80,31 84 C19 88,10 80,16 67 Z" stroke="#fff" stroke-width="5"/>
+    <circle cx="16" cy="67" r="5" fill="#ff3b30" stroke="#fff" stroke-width="1.5"/>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
+    <text x="84" y="120" fill="rgba(255,255,255,.70)" font-size="30" font-weight="800" letter-spacing="8">TRACK ACADEMY</text>
+    <text x="84" y="218" fill="#fff" font-size="74" font-weight="900" letter-spacing="-4">Barcelona-Catalunya</text>
+    <text x="88" y="274" fill="rgba(255,255,255,.72)" font-size="28">Испания · 4.657 км · 14 поворотов</text>
+    <g transform="translate(84 320)">
+      <g transform="translate(0 0)"><rect width="132" height="38" rx="19" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)"/><text x="66" y="25" text-anchor="middle" fill="rgba(255,255,255,.78)" font-size="15" font-weight="700">Grand Prix</text></g><g transform="translate(150 0)"><rect width="132" height="38" rx="19" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)"/><text x="66" y="25" text-anchor="middle" fill="rgba(255,255,255,.78)" font-size="15" font-weight="700">GP no chicane</text></g><g transform="translate(300 0)"><rect width="132" height="38" rx="19" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)"/><text x="66" y="25" text-anchor="middle" fill="rgba(255,255,255,.78)" font-size="15" font-weight="700">National</text></g>
+    </g>
+  </g>
+</svg>

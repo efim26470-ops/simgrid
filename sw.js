@@ -1,4 +1,4 @@
-const CACHE = 'simgrid-v2.1.1';
+const CACHE = 'simgrid-v2.2.0';
 const CORE = [
   './','./index.html','./styles.css','./data.js','./app.js','./manifest.webmanifest',
   './icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png',
@@ -16,7 +16,33 @@ const CORE = [
   './assets/guides/cover-interlagos.jpg',
   './assets/guides/cover-lemans.jpg',
   './assets/guides/cover-daytona.jpg',
-  './assets/guides/cover-brands.jpg'
+  './assets/guides/cover-brands.jpg',
+  './assets/guides/generated-bahrain.svg',
+  './assets/guides/generated-barcelona.svg',
+  './assets/guides/generated-brands.svg',
+  './assets/guides/generated-cota.svg',
+  './assets/guides/generated-daytona.svg',
+  './assets/guides/generated-donington.svg',
+  './assets/guides/generated-drift.svg',
+  './assets/guides/generated-hungaroring.svg',
+  './assets/guides/generated-imola.svg',
+  './assets/guides/generated-interlagos.svg',
+  './assets/guides/generated-jeddah.svg',
+  './assets/guides/generated-laguna.svg',
+  './assets/guides/generated-lemans.svg',
+  './assets/guides/generated-misano.svg',
+  './assets/guides/generated-monza.svg',
+  './assets/guides/generated-mountpanorama.svg',
+  './assets/guides/generated-nurburgring.svg',
+  './assets/guides/generated-paulricard.svg',
+  './assets/guides/generated-redbullring.svg',
+  './assets/guides/generated-roadatlanta.svg',
+  './assets/guides/generated-sebring.svg',
+  './assets/guides/generated-silverstone.svg',
+  './assets/guides/generated-spa.svg',
+  './assets/guides/generated-suzuka.svg',
+  './assets/guides/generated-watkins.svg',
+  './assets/guides/generated-zandvoort.svg'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));

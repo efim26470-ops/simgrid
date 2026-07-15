@@ -53,3 +53,12 @@ A GitHub Pages project must not expose a Steam Web API key. Deploy the optional 
 ## Privacy
 
 Sessions, setup versions, favorites, guide progress and quiz results are stored locally in browser storage. Export a JSON backup before clearing Safari website data or moving to another device.
+
+## v2.2.0 — macOS/iOS visual fix
+
+- Пересобран каталог трасс и машин: новые карточки, фильтр по типу трассы / классу машины, улучшенные схемы, стартовые точки и рейтинг сложности.
+- Исправлена визуальная проблема с одинаковой красной точкой на трассах: старт теперь вычисляется из SVG-пути.
+- Обновлены модальные окна для macOS и iOS: аккуратные отступы, стабильная прокрутка, safe-area и нижние действия.
+- Добавлены более заметные анимации появления карточек, отрисовки трека, открытия модального окна и hover/active-состояния.
+- Расширены детали каталога: тренировочный план для трассы и инженерная подсказка для автомобиля.
+
